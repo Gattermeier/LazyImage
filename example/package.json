@@ -5,14 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel -d lib/ src/"
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015",
-      "stage-0"
-    ]
+    "compile": "webpack"
   },
   "keywords": [
     "React",
