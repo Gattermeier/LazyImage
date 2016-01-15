@@ -12,10 +12,6 @@ function getStyles(target, styles, condition) {
   )
 }
 
-function getClass(target, condition) {
-  return condition && 'seemslegit' || 'ups'
-}
-
 class FullImage extends React.Component {
   constructor(props) {
     super(props)
