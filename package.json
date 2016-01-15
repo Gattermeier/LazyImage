@@ -1,6 +1,6 @@
 {
   "name": "lazyimage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Component for Progressive Image Loading",
   "main": "lib/index.js",
   "dependencies": {},
