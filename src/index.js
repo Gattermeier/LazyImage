@@ -70,7 +70,6 @@ class LazyImageWrapper extends React.Component {
     }
   }
   handleLoaded() {
-    console.log('loaded')
     this.setState({
       loaded: true
     })
