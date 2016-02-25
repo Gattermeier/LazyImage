@@ -1,6 +1,12 @@
-# LazyImage
+# LazyImage    
 A React Component for Progressive Image Loading.   
-Loads a low res version of an image blurred before replacing it with large, high-res image after it was loaded completely.   
+
+[![Build Status](https://travis-ci.org/Gattermeier/LazyImage.svg?branch=master)](https://travis-ci.org/Gattermeier/LazyImage) 
+[![npm version](https://badge.fury.io/js/hapi-ff.svg)](https://badge.fury.io/js/hapi-ff) 
+[![dependency status](https://david-dm.org/gattermeier/lazyimage.svg)](https://david-dm.org/Gattermeier/lazyimage)    
+
+
+LazyImage loads a low res version of an image blurred before replacing it with large, high-res image after it was loaded completely.   
 Inspired by a blog article on Medium's progressive image loading by José Manuel Pérez: https://jmperezperez.com/medium-image-progressive-loading-placeholder/ 
 
 ## Usage   
