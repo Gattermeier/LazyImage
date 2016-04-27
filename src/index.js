@@ -17,7 +17,7 @@ class FullImage extends React.Component {
     super(props)
   }
   render() {
-    var {src, onLoad, style, ...other} = this.props
+    var {src, onLoad, style} = this.props
     return (
       <div style={style}>
         <img src={src} style={style} onLoad={onLoad} />
@@ -52,7 +52,7 @@ class LazyImage extends React.Component {
     StackBlur(this.preImg, this.canvas, nextProps.blurRadius, 600, 190);
   }
   render() {
-    var { src, style, ...other } = this.props;
+    var { src, style } = this.props;
     return (
       <div style={style} >
         <canvas ref='canvas' />
@@ -75,7 +75,7 @@ class LazyImageWrapper extends React.Component {
     })
   }
   render() {
-    var { src, small, width, height, children, className, blurRadius, ...other } = this.props;
+    var { src, small, width, height, children, className, blurRadius } = this.props;
     var styles = {
       width,
       height,
@@ -97,5 +97,18 @@ class LazyImageWrapper extends React.Component {
     )
   }
 }
+
+// ES6 only, not using ES7 property initializers to avoid using babel stage-0 preset
+LazyImageWrapper.propTypes = {
+  blurRadius: React.PropTypes.number,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number
+ };
+LazyImageWrapper.defaultProps = {
+  blurRadius: 10,
+  width: 600,
+  height: 190  
+};
+
 
 module.exports = LazyImageWrapper
