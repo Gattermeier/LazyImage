@@ -17,11 +17,5 @@ global.navigator = {
   userAgent: 'node'
 };
 
-// simulate TAGX object
-global.TAGX = {
-  EventProxy: {
-    trigger: () => {return true}
-  }
-}
 
 documentRef = document;
