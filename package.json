@@ -19,6 +19,7 @@
     "babel-register": "^6.7.2",
     "code": "^2.2.0",
     "enzyme": "^2.2.0",
+    "jsdom": "^8.4.0",
     "lab": "^10.3.1",
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
