@@ -25,7 +25,7 @@
     "webpack": "^1.12.11"
   },
   "scripts": {
-    "test": "lab tests/.setup.js tests/test.js",
+    "test": "lab tests/.setup.js tests/test.js --leaks",
     "compile": "webpack",
     "prepublish": "npm run compile"
   },
