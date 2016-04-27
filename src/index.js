@@ -98,4 +98,17 @@ class LazyImageWrapper extends React.Component {
   }
 }
 
+// ES6 only, not using ES7 property initializers to avoid using babel stage-0 preset
+LazyImageWrapper.propTypes = {
+  blurRadius: React.PropTypes.number,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number
+ };
+LazyImageWrapper.defaultProps = {
+  blurRadius: 10,
+  width: 600,
+  height: 190  
+};
+
+
 module.exports = LazyImageWrapper
