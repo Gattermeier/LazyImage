@@ -25,9 +25,9 @@ suite('LazyImage Component', () => {
   })
   test('Should have default props', (done) => {
     const wrapper = mount( <LazyImageWrapper /> );
-    expect(wrapper.props().blurRadius).to.equal("10");
-    expect(wrapper.props().width).to.equal("600");
-    expect(wrapper.props().height).to.equal("190");
+    expect(wrapper.props().blurRadius).to.equal(10);
+    expect(wrapper.props().width).to.equal(600);
+    expect(wrapper.props().height).to.equal(190);
     done();
   })
 });
