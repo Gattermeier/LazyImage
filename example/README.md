@@ -4,7 +4,7 @@ An example for implementing progressive image loading with React Component "Lazy
 ## Usage   
 Installation & compiling:
 
-'npm install'
-'npm run compile'
+`npm install`
+`npm run compile`
 
-then open index.html
+then open `index.html`
