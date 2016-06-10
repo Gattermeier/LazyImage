@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+// const React = require('react');
+// const ReactDOM = require('react-dom');
 const StackBlur = require('../shared/stackblur');
 
 function getStyles(target, styles, condition) {
@@ -32,30 +32,39 @@ class LazyImage extends React.Component {
 
   componentDidMount(){
     var container = ReactDOM.findDOMNode(this);
+    console.log('precanvas')
+    let canvas = this.refs.canvas;
+    console.log(canvas, 'canvas')
+
     this.width = container.offsetWidth;
     this.height = container.offsetHeight;
-    this.canvas = ReactDOM.findDOMNode(this.refs.canvas);
-    this.canvas.height = this.height;
-    this.canvas.width = this.width;
-    var blurRadius = this.props.blurRadius || 0;
+    canvas.height = this.height;
+    canvas.width = this.width;
+
+    let blurRadius = this.props.blurRadius || 0;
+
     this.preImg = document.createElement('img');
     this.preImg.crossOrigin = 'Anonymous';
     this.preImg.onload = () => {
-      StackBlur(this.preImg, this.canvas, blurRadius, 600, 190);
+      StackBlur(this.preImg, canvas, blurRadius, 600, 190);
     };
     this.preImg.src = this.props.src;
+    console.log(this.preImg, 'PREIMG componentDidMount')
   }
-  componentWillUpdate(nextProps) {
-    if (this.preImg.src !== nextProps.src) {
-      this.preImg.src = nextProps.src;
-    }
-    StackBlur(this.preImg, this.canvas, nextProps.blurRadius, 600, 190);
-  }
+  // componentWillUpdate(nextProps) {
+  //   let canvas = this.refs.canvas;
+  //   console.log(this.preImg, 'PREIMG componentWillUpdate')
+  //
+  //   if (this.preImg.src !== nextProps.src) {
+  //     this.preImg.src = nextProps.src;
+  //   }
+  //   StackBlur(this.preImg, canvas, nextProps.blurRadius, 600, 190);
+  // }
   render() {
-    var { src, style } = this.props;
+    const { src, style } = this.props;
     return (
       <div style={style} >
-        <canvas ref='canvas' />
+        <canvas  />
       </div>
     )
   }
@@ -107,7 +116,7 @@ LazyImageWrapper.propTypes = {
 LazyImageWrapper.defaultProps = {
   blurRadius: 10,
   width: 600,
-  height: 190  
+  height: 190
 };
 
 

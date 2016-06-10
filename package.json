@@ -1,14 +1,14 @@
 {
   "name": "lazyimage",
   "version": "1.0.4",
-  "description": "A React Component for Progressive Image Loading",
+  "description": "A React Component for Progressive (Lazy) Image Loading",
   "main": "lib/index.js",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
-    "babel-runtime": "^6.3.19",
-    "react": "^15.0.1"
+    "babel-runtime": "^6.3.19"
   },
   "devDependencies": {
+    "babel-cli": "^6.9.0",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
     "babel-plugin-transform-runtime": "^6.4.3",
@@ -24,11 +24,11 @@
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
     "react-dom": "^15.0.1",
-    "webpack": "^1.12.11"
+    "webpack": "^1.13.1"
   },
   "scripts": {
     "test": "lab tests/.setup.js tests/test.js --leaks",
-    "compile": "webpack",
+    "compile": "babel ./src --out-dir ./lib",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -37,7 +37,8 @@
   },
   "keywords": [
     "React",
-    "Image"
+    "Image",
+    "lazy loading"
   ],
   "author": "Matthias Gattermeier, <matthias.gattermeier@gmail.com>",
   "license": "MIT",
