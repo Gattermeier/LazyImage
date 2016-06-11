@@ -1,7 +1,5 @@
 const Path = require('path');
 
-console.log(__dirname)
-
 module.exports = {
   entry: [
      'babel-polyfill',
