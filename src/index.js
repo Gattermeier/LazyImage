@@ -1,73 +1,16 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const StackBlur = require('../shared/stackblur');
+import React from 'react'
+import FullImage from './FullImage'
+import LazyImage from './LazyImage'
 
-function getStyles(target, styles, condition) {
-  let conditionalStyles = require('../shared/styles');
-
-  return Object.assign({},
-    styles,
-    condition && conditionalStyles[target].true,
-    !condition && conditionalStyles[target].false
-  )
-}
-
-class FullImage extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    var {src, onLoad, style} = this.props
-    return (
-      <div style={style}>
-        <img src={src} style={style} onLoad={onLoad} />
-      </div>
-    )
-  }
-}
-class LazyImage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount(){
-    var container = ReactDOM.findDOMNode(this);
-    this.width = container.offsetWidth;
-    this.height = container.offsetHeight;
-    this.canvas = ReactDOM.findDOMNode(this.refs.canvas);
-    this.canvas.height = this.height;
-    this.canvas.width = this.width;
-    var blurRadius = this.props.blurRadius || 0;
-    this.preImg = document.createElement('img');
-    this.preImg.crossOrigin = 'Anonymous';
-    this.preImg.onload = () => {
-      StackBlur(this.preImg, this.canvas, blurRadius, 600, 190);
-    };
-    this.preImg.src = this.props.src;
-  }
-  componentWillUpdate(nextProps) {
-    if (this.preImg.src !== nextProps.src) {
-      this.preImg.src = nextProps.src;
-    }
-    StackBlur(this.preImg, this.canvas, nextProps.blurRadius, 600, 190);
-  }
-  render() {
-    var { src, style } = this.props;
-    return (
-      <div style={style} >
-        <canvas ref='canvas' />
-      </div>
-    )
-  }
-}
+import getStyles from '../shared/getStyles'
 
 class LazyImageWrapper extends React.Component {
   constructor(props) {
     super(props)
-    this.handleLoaded = this.handleLoaded.bind(this);
     this.state = {
       loaded: false
     }
+    this.handleLoaded = this.handleLoaded.bind(this);
   }
   handleLoaded() {
     this.setState({
@@ -75,8 +18,8 @@ class LazyImageWrapper extends React.Component {
     })
   }
   render() {
-    var { src, small, width, height, children, className, blurRadius } = this.props;
-    var styles = {
+    const { src, small, width, height, blurRadius } = this.props;
+    const styles = {
       width,
       height,
       padding: 0,
@@ -85,29 +28,30 @@ class LazyImageWrapper extends React.Component {
       top: 0
     }
 
-    var wrapperStyles = {
+    const wrapperStyles = {
       paddingBottom: styles.height,
       position: 'relative'
     }
+
     return (
       <div style={wrapperStyles}>
         <FullImage src={src} style={getStyles('FullImage', styles, this.state.loaded)} onLoad={this.handleLoaded} />
-        <LazyImage src={small} style={getStyles('LazyImage', styles, this.state.loaded)} blurRadius={this.props.blurRadius}/>
+        <LazyImage src={small} width={width} height={height} style={getStyles('LazyImage', styles, this.state.loaded)} blurRadius={this.props.blurRadius}/>
       </div>
     )
   }
 }
 
-// ES6 only, not using ES7 property initializers to avoid using babel stage-0 preset
 LazyImageWrapper.propTypes = {
   blurRadius: React.PropTypes.number,
   width: React.PropTypes.number,
   height: React.PropTypes.number
  };
+
 LazyImageWrapper.defaultProps = {
   blurRadius: 10,
   width: 600,
-  height: 190  
+  height: 190
 };
 
 

@@ -1,10 +1,10 @@
 # LazyImage Example
-An example for implementing progressive image loading with React Component "LazyImage".
+An example for implementing progressive image loading with "LazyImage" React Component.
 
 ## Usage   
 Installation & compiling:
 
 `npm install`    
-`npm run compile`
+`npm run build`
 
-then open `index.html`
+open `index.html`
