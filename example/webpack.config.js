@@ -17,8 +17,8 @@ module.exports = {
       exclude: /(node_modules|bower_components)/,
       loader: 'babel-loader',
       query: {
-        plugins: ['transform-runtime'],
-        presets: ['react', 'es2015', 'stage-0']
+        presets: ['es2015', 'react', 'stage-0'],
+        plugins: ['transform-runtime']
       }
     }]
   }
