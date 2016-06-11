@@ -1,6 +1,6 @@
-function getStyles(target, styles, condition) {
-  let conditionalStyles = require('./styles');
+const conditionalStyles = require('./styles')
 
+function getStyles(target, styles, condition) {
   return Object.assign({},
     styles,
     condition && conditionalStyles[target].true,
@@ -8,4 +8,4 @@ function getStyles(target, styles, condition) {
   )
 }
 
-export default getStyles
+module.exports = getStyles
