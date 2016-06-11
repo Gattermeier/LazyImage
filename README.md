@@ -7,21 +7,29 @@ A React Component for Progressive Image Loading.
 [![devDependency Status](https://david-dm.org/Gattermeier/lazyimage/dev-status.svg)](https://david-dm.org/Gattermeier/lazyimage#info=devDependencies)
 
 
-LazyImage loads a low res version of an image blurred before replacing it with large, high-res image after it was loaded completely.   
-Inspired by a blog article on Medium's progressive image loading by José Manuel Pérez: https://jmperezperez.com/medium-image-progressive-loading-placeholder/
+LazyImage loads a low res version of an image blurred before replacing it with a larger, higher-res image after it was loaded completely. Inspired by a blog article on Medium's progressive image loading by José Manuel Pérez: https://jmperezperez.com/medium-image-progressive-loading-placeholder/
 
-## Usage   
-```
+## Install via npm    
+`npm i --save lazyimage`    
+
+## Useage
+```javascript
+import LazyImage from 'lazyimage'
+
+...     
+
 <LazyImage
   blurRadius="10"
   width="600"
   height="190"
   src="/path/to/very/large/image"
-  small="/path/to/low/quality/image" />
+  small="/path/to/low/quality/image" 
+/>
 ```
 
 ## Tests
-Uses Lab, Code, Enzyme for unit testing the React component. 
-Run with:
+Uses [Lab](https://github.com/hapijs/lab), [Code](https://github.com/hapijs/code), [Enzyme](https://github.com/airbnb/enzyme) for unit tests. If you want to know more about React unit testing using Lab instead of Mocha or Tape read the [blog post on Medium](https://medium.com/@gattermeier/react-unit-testing-with-enzyme-lab-and-code-24dad077f6d4#.3lawhddx2)
+
+Run tests with:
 
 `npm test`
