@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LazyImage from 'lazyimage';
+import LazyImage from '../../lib/index.js'
 
 const App = (props) => (
   <div>
