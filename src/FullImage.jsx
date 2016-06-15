@@ -1,17 +1,12 @@
 import React from 'react'
 
-class FullImage extends React.Component {
-  constructor() {
-    super()
-  }
-  render() {
-    const {src, style, onLoad} = this.props
-    return (
-      <div style={style}>
-        <img src={src} style={style} onLoad={onLoad} />
-      </div>
-    )
-  }
+const FullImage = (props) => {
+  const { src, style, onLoad } = props
+  return (
+    <div style={style}>
+      <img src={src} style={style} onLoad={onLoad} />
+    </div>
+  )
 }
 
 FullImage.propTypes = {
