@@ -1,15 +1,18 @@
-const Path = require('path');
+const path = require('path');
 
 module.exports = {
   entry: [
      'babel-polyfill',
-     Path.join(__dirname, './src/index.jsx')
+     path.join(__dirname, './src/index.jsx')
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      react: path.resolve('./node_modules/react'),
+    }
   },
   output: {
-    filename: Path.join(__dirname, './lib/index.js')
+    filename: path.join(__dirname, './lib/index.js')
   },
   module: {
     loaders: [{

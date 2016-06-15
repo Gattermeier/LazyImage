@@ -1,7 +1,6 @@
 import React from 'react'
 import FullImage from './FullImage'
 import LazyImage from './LazyImage'
-
 import getStyles from '../shared/getStyles'
 
 class LazyImageWrapper extends React.Component {
@@ -18,25 +17,36 @@ class LazyImageWrapper extends React.Component {
     })
   }
   render() {
-    const { src, small, width, height, blurRadius } = this.props;
+    const { src, low, width, height, blurRadius } = this.props;
+
     const styles = {
       width,
       height,
       padding: 0,
       margin: 0,
-      position: 'absolute',
-      top: 0
+      top: 0,
     }
 
-    const wrapperStyles = {
-      paddingBottom: styles.height,
-      position: 'relative'
+    if (!this.props.low) {
+      return <img src={src} style={styles} />
     }
 
     return (
-      <div style={wrapperStyles}>
-        <FullImage src={src} style={getStyles('FullImage', styles, this.state.loaded)} onLoad={this.handleLoaded} />
-        <LazyImage src={small} width={width} height={height} style={getStyles('LazyImage', styles, this.state.loaded)} blurRadius={this.props.blurRadius}/>
+      <div>
+        <FullImage
+          src={src}
+          style={getStyles('FullImage', styles, this.state.loaded)}
+          onLoad={this.handleLoaded}
+        />
+        {!this.state.loaded &&
+          <LazyImage
+            src={low}
+            width={width}
+            height={height}
+            style={getStyles('LazyImage', styles, this.state.loaded)}
+            blurRadius={this.props.blurRadius}
+          />
+        }
       </div>
     )
   }
