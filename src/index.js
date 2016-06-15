@@ -1,7 +1,6 @@
 import React from 'react'
 import FullImage from './FullImage'
 import LazyImage from './LazyImage'
-
 import getStyles from '../shared/getStyles'
 
 class LazyImageWrapper extends React.Component {
@@ -25,7 +24,14 @@ class LazyImageWrapper extends React.Component {
       padding: 0,
       margin: 0,
       position: 'absolute',
-      top: 0
+      top: 0,
+    }
+
+    const ease = {
+      WebkitTransition: 'opacity 250ms ease-in-out',
+      MozTransition: 'opacity 250ms ease-in-out',
+      OTransition: 'opacity 250ms ease-in-out',
+      transition: 'opacity 250ms ease-in-out',
     }
 
     const wrapperStyles = {
@@ -36,7 +42,7 @@ class LazyImageWrapper extends React.Component {
     return (
       <div style={wrapperStyles}>
         <FullImage src={src} style={getStyles('FullImage', styles, this.state.loaded)} onLoad={this.handleLoaded} />
-        <LazyImage src={small} width={width} height={height} style={getStyles('LazyImage', styles, this.state.loaded)} blurRadius={this.props.blurRadius}/>
+        <LazyImage src={small} width={width} height={height} style={getStyles('LazyImage', Object.assign({}, ease, styles), this.state.loaded)} blurRadius={this.props.blurRadius}/>
       </div>
     )
   }
