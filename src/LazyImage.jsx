@@ -2,9 +2,6 @@ import React from 'react'
 const StackBlur = require('../shared/stackblur');
 
 class LazyImage extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount(){
     this.canvas = this.refs.canvas
     this.preImg = document.createElement('img');
