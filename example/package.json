@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "webpack"
+    "build": "webpack"
   },
   "keywords": [
     "React",
@@ -20,13 +20,12 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
-    "webpack": "^1.12.11"
+    "webpack": "^1.13.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "babel-runtime": "^6.3.19",
-    "lazyimage": "^1.0.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
   }
 }

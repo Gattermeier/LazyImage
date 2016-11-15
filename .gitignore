@@ -34,6 +34,7 @@ node_modules
 .node_repl_history
 
 lib/
+example/lib
 
 # System
 .DS\_Store
